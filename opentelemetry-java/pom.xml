@@ -12,20 +12,20 @@
     </parent>
 
     <artifactId>opentelemetry-java</artifactId>
-    <version>${version}.000-SNAPSHOT</version>
+    <version>${opentelemetry.version}.000-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <properties>
-        <groupId>io.opentelemetry</groupId>
-        <version>1.41.0</version>
+        <opentelemetry.groupId>io.opentelemetry</opentelemetry.groupId>
+        <opentelemetry.version>1.41.0</opentelemetry.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>${groupId}</groupId>
+                <groupId>${opentelemetry.groupId}</groupId>
                 <artifactId>opentelemetry-bom</artifactId>
-                <version>${version}</version>
+                <version>${opentelemetry.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -34,31 +34,31 @@
 
     <dependencies>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-sdk</artifactId>
         </dependency>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-sdk-metrics</artifactId>
         </dependency>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-sdk-extension-autoconfigure</artifactId>
         </dependency>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-sdk-extension-autoconfigure-spi</artifactId>
         </dependency>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-exporter-otlp</artifactId>
         </dependency>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-exporter-logging</artifactId>
         </dependency>
     </dependencies>

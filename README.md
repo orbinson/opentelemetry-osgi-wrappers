@@ -2,7 +2,7 @@
 
 Provide OSGi wrappers for OpenTelemetry artifacts.
 
-Every Maven module maps to a specific GitHub repository in the `open-telemetry` namespace that has a fixed `groupId` and `version` that is defined by the code repository.
+Every Maven module maps to a specific GitHub repository in the `open-telemetry` namespace that has a fixed `opentelemetry.groupId` and `opentelemetry.version` that is defined by the code repository.
 
 Example: the `opentelemetry-java` module will contain artifacts that are generated and maintained in the https://github.com/open-telemetry/opentelemetry-java repository. If the repository has a version `1.40.0` the resulting bundle will have version `1.40.0.000` which can still be incremented for bugfixes or issues.
 

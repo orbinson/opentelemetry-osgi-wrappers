@@ -24,11 +24,37 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <sling.host>localhost</sling.host>
+        <sling.port>8080</sling.port>
+        <sling.user>admin</sling.user>
+        <sling.password>admin</sling.password>
     </properties>
 
     <organization>
         <name>Orbinson</name>
     </organization>
+
+    <developers>
+        <developer>
+            <name>Barry d'Hoine</name>
+            <email>barrydhoine@gmail.com</email>
+            <id>bdhoine</id>
+        </developer>
+        <developer>
+            <name>Roy Teeuwen</name>
+            <email>roy@orbinson.be</email>
+            <id>royteeuwen</id>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <issueManagement>
         <system>GitHub</system>
@@ -48,10 +74,6 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.sling</groupId>
-                <artifactId>maven-sling-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -81,15 +103,9 @@
                     <artifactId>maven-bundle-plugin</artifactId>
                     <version>5.1.9</version>
                     <extensions>true</extensions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-bundle-plugin</artifactId>
-                    <version>5.1.9</version>
-                    <extensions>true</extensions>
                     <configuration>
                         <instructions>
-                            <Export-Package>${groupId}.*</Export-Package>
+                            <Export-Package>${opentelemetry.groupId}.*</Export-Package>
                             <Import-Package>*;resolution:=optional</Import-Package>
                             <Embed-Dependency>*</Embed-Dependency>
                             <Embed-Transitive>true</Embed-Transitive>
@@ -97,21 +113,6 @@
                             <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         </instructions>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.sling</groupId>
-                    <artifactId>maven-sling-plugin</artifactId>
-                    <version>2.1.8</version>
-                    <configuration>
-                        <slingUrl>http://localhost:4502/system/console</slingUrl>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>install</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                 </plugin>
                 <!-- Sonatype Release -->
                 <plugin>
@@ -177,6 +178,37 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <profiles>
+        <profile>
+            <id>auto-deploy</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.sling</groupId>
+                        <artifactId>sling-maven-plugin</artifactId>
+                        <version>2.4.0</version>
+                        <configuration>
+                            <slingUrl>
+                                http://${sling.host}:${sling.port}/apps/system/install
+                            </slingUrl>
+                            <deploymentMethod>SlingPostServlet</deploymentMethod>
+                            <user>${sling.user}</user>
+                            <password>${sling.password}</password>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>install-bundle</id>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <repositories>
         <repository>

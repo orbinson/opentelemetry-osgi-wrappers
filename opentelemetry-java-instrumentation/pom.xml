@@ -12,40 +12,25 @@
     </parent>
 
     <artifactId>opentelemetry-java-instrumentation</artifactId>
-    <version>${version}.000-SNAPSHOT</version>
+    <version>${opentelemetry.version}.000-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <properties>
-        <groupId>io.opentelemetry.instrumentation</groupId>
-        <version>1.25.0</version>
+        <opentelemetry.groupId>io.opentelemetry.instrumentation</opentelemetry.groupId>
+        <opentelemetry.version>1.25.0</opentelemetry.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-logback-appender-1.0</artifactId>
-            <version>${version}-alpha</version>
+            <version>${opentelemetry.version}-alpha</version>
         </dependency>
 
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-instrumentation-annotations</artifactId>
-            <version>${version}</version>
+            <version>${opentelemetry.version}</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Export-Package>${groupId}.*</Export-Package>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>

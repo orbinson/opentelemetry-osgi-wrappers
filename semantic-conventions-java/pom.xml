@@ -12,19 +12,19 @@
     </parent>
 
     <artifactId>semantic-conventions-java</artifactId>
-    <version>${version}.000-SNAPSHOT</version>
+    <version>${opentelemetry.version}.000-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <properties>
-        <groupId>io.opentelemetry.semconv</groupId>
-        <version>1.27.0</version>
+        <opentelemetry.groupId>io.opentelemetry.semconv</opentelemetry.groupId>
+        <opentelemetry.version>1.27.0</opentelemetry.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-semconv</artifactId>
-            <version>${version}-alpha</version>
+            <version>${opentelemetry.version}-alpha</version>
         </dependency>
     </dependencies>
 </project>
