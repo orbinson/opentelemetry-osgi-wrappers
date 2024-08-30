@@ -16,8 +16,8 @@
     <packaging>bundle</packaging>
 
     <properties>
-        <opentelemetry.groupId>io.opentelemetry.semconv</opentelemetry.groupId>
-        <opentelemetry.version>1.27.0</opentelemetry.version>
+        <opentelemetry.groupId>${opentelemetry.semconv.groupId}</opentelemetry.groupId>
+        <opentelemetry.version>${opentelemetry.semconv.version}</opentelemetry.version>
     </properties>
 
     <dependencies>

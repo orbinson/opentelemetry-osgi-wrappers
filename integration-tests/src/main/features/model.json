@@ -1,0 +1,60 @@
+{
+  "id": "${project.groupId}:${project.artifactId}:model:${project.version}",
+  "bundles": [
+    // OSGi
+    {
+      "id": "org.osgi:org.osgi.util.promise:1.1.1",
+      "start-order": "1"
+    },
+    {
+      "id": "org.osgi:org.osgi.util.function:1.1.0",
+      "start-order": "1"
+    },
+    {
+      "id": "org.osgi:org.osgi.util.converter:1.0.1",
+      "start-order": "1"
+    },
+    {
+      "id": "org.apache.felix:org.apache.felix.scr:2.1.20",
+      "start-order": "1"
+    },
+    {
+      "id": "commons-fileupload:commons-fileupload:1.4",
+      "start-order": "1"
+    },
+    {
+      "id": "commons-io:commons-io:2.6",
+      "start-order": "1"
+    },
+    {
+      "id": "org.apache.felix:org.apache.felix.webconsole:4.5.0",
+      "start-order": "1"
+    },
+    {
+      "id": "org.apache.felix:org.apache.felix.http.servlet-api:1.1.2",
+      "start-order": "5"
+    },
+    {
+      "id": "org.apache.felix:org.apache.felix.http.jetty:4.0.16",
+      "start-order": "5"
+    },
+    // OpenTelemetry OSGi wrappers
+    {
+      "id": "${project.groupId}:opentelemetry-java:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": "5"
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-java-instrumentation:${opentelemetry.java.instrumentation.version}.000-SNAPSHOT",
+      "start-order": "5"
+    },
+    {
+      "id": "${project.groupId}:semantic-conventions-java:${opentelemetry.semconv.version}.000-SNAPSHOT",
+      "start-order": "5"
+    },
+    // Actual project
+    {
+      "id": "${project.groupId}:${project.artifactId}:${project.version}",
+      "start-order": 20
+    }
+  ]
+}

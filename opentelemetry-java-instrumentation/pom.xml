@@ -16,8 +16,8 @@
     <packaging>bundle</packaging>
 
     <properties>
-        <opentelemetry.groupId>io.opentelemetry.instrumentation</opentelemetry.groupId>
-        <opentelemetry.version>1.25.0</opentelemetry.version>
+        <opentelemetry.groupId>${opentelemetry.java.instrumentation.groupId}</opentelemetry.groupId>
+        <opentelemetry.version>${opentelemetry.java.instrumentation.version}</opentelemetry.version>
     </properties>
 
     <dependencies>

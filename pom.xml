@@ -20,6 +20,7 @@
         <module>opentelemetry-java</module>
         <module>opentelemetry-java-instrumentation</module>
         <module>semantic-conventions-java</module>
+        <module>integration-tests</module>
     </modules>
 
     <properties>
@@ -29,6 +30,13 @@
         <sling.port>8080</sling.port>
         <sling.user>admin</sling.user>
         <sling.password>admin</sling.password>
+
+        <opentelemetry.java.groupId>io.opentelemetry</opentelemetry.java.groupId>
+        <opentelemetry.java.version>1.41.0</opentelemetry.java.version>
+        <opentelemetry.java.instrumentation.groupId>io.opentelemetry.instrumentation</opentelemetry.java.instrumentation.groupId>
+        <opentelemetry.java.instrumentation.version>1.25.0</opentelemetry.java.instrumentation.version>
+        <opentelemetry.semconv.groupId>io.opentelemetry.semconv</opentelemetry.semconv.groupId>
+        <opentelemetry.semconv.version>1.27.0</opentelemetry.semconv.version>
     </properties>
 
     <organization>
