@@ -19,6 +19,11 @@ public class OpenTelemetryIT {
     private static final int SLING_PORT = Integer.getInteger("HTTP_PORT", 8080);
 
     @Test
+    public void testOsgi() throws InterruptedException {
+        Thread.sleep(1000000);
+    }
+
+    @Test
     public void testOpenTelemetryBundlesActive() throws Exception {
         String url = "http://localhost:" + SLING_PORT + "/system/console/bundles.json";
 

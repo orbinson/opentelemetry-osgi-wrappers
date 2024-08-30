@@ -12,25 +12,15 @@
     </parent>
 
     <artifactId>opentelemetry-java-instrumentation</artifactId>
-    <version>${opentelemetry.version}.000-SNAPSHOT</version>
-    <packaging>bundle</packaging>
+    <packaging>pom</packaging>
 
     <properties>
         <opentelemetry.groupId>${opentelemetry.java.instrumentation.groupId}</opentelemetry.groupId>
         <opentelemetry.version>${opentelemetry.java.instrumentation.version}</opentelemetry.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-logback-appender-1.0</artifactId>
-            <version>${opentelemetry.version}-alpha</version>
-        </dependency>
+    <modules>
+        <module>opentelemetry-instrumentation-annotations</module>
+    </modules>
 
-        <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-instrumentation-annotations</artifactId>
-            <version>${opentelemetry.version}</version>
-        </dependency>
-    </dependencies>
 </project>

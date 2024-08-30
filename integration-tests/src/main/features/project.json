@@ -1,0 +1,21 @@
+{
+  "id": "${project.groupId}:${project.artifactId}:slingfeature:project:${project.version}",
+  "bundles": [
+    {
+      "id": "${project.groupId}:opentelemetry-java:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": "5"
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-instrumentation-annotations:${opentelemetry.java.instrumentation.version}.000-SNAPSHOT",
+      "start-order": "5"
+    },
+    {
+      "id": "${project.groupId}:semantic-conventions-java:${opentelemetry.semconv.version}.000-SNAPSHOT",
+      "start-order": "5"
+    },
+    {
+      "id": "${project.groupId}:${project.artifactId}:${project.version}",
+      "start-order": 20
+    }
+  ]
+}
