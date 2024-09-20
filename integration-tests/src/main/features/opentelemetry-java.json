@@ -2,7 +2,63 @@
   "id": "${project.groupId}:${project.artifactId}:slingfeature:opentelemetry-java:${project.version}",
   "bundles": [
     {
-      "id": "${project.groupId}:opentelemetry-java:${opentelemetry.java.version}.000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-api:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-api-incubator:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-context:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-sdk:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-sdk-common:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-sdk-logs:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-sdk-metrics:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-sdk-trace:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-sdk-extension-autoconfigure:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-sdk-extension-autoconfigure-spi:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-sdk-extension-incubator:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-exporter-common:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-exporter-logging:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-exporter-otlp:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-exporter-otlp-common:${opentelemetry.java.version}.000-SNAPSHOT",
       "start-order": 5
     },
     {

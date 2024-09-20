@@ -39,7 +39,22 @@ public class OpenTelemetryIT {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         String responseBody = response.body();
-        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-java')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-api')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-api-incubator')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-context')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-exporter-common')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-exporter-logging')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-exporter-otlp')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-exporter-otlp-common')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-exporter-sender-okhttp')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-sdk')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-sdk-common')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-sdk-extension-autoconfigure')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-sdk-extension-autoconfigure-spi')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-sdk-extension-incubator')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-sdk-logs')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-sdk-metrics')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-sdk-trace')]")).get(0).get("state"));
         assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-instrumentation-annotations')]")).get(0).get("state"));
         assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-instrumentation-api')]")).get(0).get("state"));
         assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-logback-appender-1.0')]")).get(0).get("state"));
