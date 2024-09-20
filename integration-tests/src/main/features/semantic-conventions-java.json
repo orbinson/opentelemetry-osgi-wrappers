@@ -1,0 +1,9 @@
+{
+  "id": "${project.groupId}:${project.artifactId}:slingfeature:semantic-conventions-java:${project.version}",
+  "bundles": [
+    {
+      "id": "${project.groupId}:semantic-conventions-java:${opentelemetry.semconv.version}.000-SNAPSHOT",
+      "start-order": 5
+    }
+  ]
+}

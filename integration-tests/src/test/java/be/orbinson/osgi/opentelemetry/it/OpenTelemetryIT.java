@@ -20,7 +20,10 @@ public class OpenTelemetryIT {
 
     @Test
     public void testOsgi() throws InterruptedException {
-        Thread.sleep(1000000);
+        System.out.println("http://localhost:" + SLING_PORT + "/system/console");
+        if (System.getProperty("debug.osgi") != null) {
+            Thread.sleep(1000000);
+        }
     }
 
     @Test
@@ -37,7 +40,9 @@ public class OpenTelemetryIT {
 
         String responseBody = response.body();
         assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-java')]")).get(0).get("state"));
-        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-java-instrumentation')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-instrumentation-annotations')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-instrumentation-api')]")).get(0).get("state"));
+        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-logback-appender-1.0')]")).get(0).get("state"));
         assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='semantic-conventions-java')]")).get(0).get("state"));
     }
 

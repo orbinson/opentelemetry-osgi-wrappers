@@ -62,8 +62,6 @@
             <version>2.9.0</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- TODO: should the feature deps go in here? -->
     </dependencies>
 
     <build>

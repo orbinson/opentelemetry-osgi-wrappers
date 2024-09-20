@@ -122,9 +122,7 @@
                     <configuration>
                         <instructions>
                             <Export-Package>${opentelemetry.groupId}.*</Export-Package>
-<!--                            <Import-Package>*;resolution:=optional</Import-Package>-->
                             <Embed-Dependency>*</Embed-Dependency>
-<!--                            <Embed-Transitive>true</Embed-Transitive>-->
                             <Bundle-Category>${project.organization.name}</Bundle-Category>
                             <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         </instructions>

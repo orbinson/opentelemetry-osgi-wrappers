@@ -32,6 +32,23 @@
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>5.1.9</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <!-- We are using okhttp as sender, which does not have a dependency on grpc -->
+                        <Import-Package>io.grpc*;resolution:=optional,*</Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <!-- API's -->
         <dependency>
@@ -101,6 +118,12 @@
         <dependency>
             <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-exporter-otlp-common</artifactId>
+        </dependency>
+
+        <!-- Exporter using okhttp as sender -->
+        <dependency>
+            <groupId>${opentelemetry.groupId}</groupId>
+            <artifactId>opentelemetry-exporter-sender-okhttp</artifactId>
         </dependency>
     </dependencies>
 </project>
