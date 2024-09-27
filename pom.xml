@@ -19,7 +19,7 @@
     <modules>
         <module>opentelemetry-java</module>
         <module>opentelemetry-java-instrumentation</module>
-        <module>semantic-conventions-java</module>
+        <module>opentelemetry-semconv</module>
         <module>integration-tests</module>
     </modules>
 

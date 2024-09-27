@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>semantic-conventions-java</artifactId>
+    <artifactId>opentelemetry-semconv</artifactId>
     <version>${opentelemetry.version}.000-SNAPSHOT</version>
     <packaging>bundle</packaging>
 

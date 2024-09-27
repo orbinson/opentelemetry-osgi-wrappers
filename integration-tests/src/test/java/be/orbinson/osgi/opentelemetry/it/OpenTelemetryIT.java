@@ -58,7 +58,7 @@ public class OpenTelemetryIT {
         assertEquals("Active", getState(responseBody, "opentelemetry-instrumentation-annotations"));
         assertEquals("Active", getState(responseBody, "opentelemetry-instrumentation-api"));
         assertEquals("Active", getState(responseBody, "opentelemetry-logback-appender-1.0"));
-        assertEquals("Active", getState(responseBody, "semantic-conventions-java"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-semconv"));
     }
 
     private static String getState(String responseBody, String bundleName) {
