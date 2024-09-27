@@ -1,0 +1,14 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  aem-maven-build:
+    uses: orbinson/workflows/.github/workflows/aem-maven-build.yml@main
