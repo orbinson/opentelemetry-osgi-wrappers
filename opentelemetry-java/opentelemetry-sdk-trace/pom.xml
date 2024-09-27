@@ -20,6 +20,23 @@
         <opentelemetry.version>${opentelemetry.java.version}</opentelemetry.version>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>5.1.9</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <!-- Unsafe is only used when it is available / enabled, see  https://github.com/open-telemetry/opentelemetry-java/pull/6433 -->
+                        <Import-Package>sun.misc;resolution:=optional,*</Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>${opentelemetry.groupId}</groupId>

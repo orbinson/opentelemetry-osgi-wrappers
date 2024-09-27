@@ -29,8 +29,11 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <!-- We are using okhttp as sender, which does not have a dependency on grpc -->
-                        <Import-Package>io.grpc*;resolution:=optional,*</Import-Package>
+                        <Import-Package>
+                            io.grpc*;resolution:=optional, <!-- We are using okhttp as sender, which does not have a dependency on grpc -->
+                            sun.misc;resolution:=optional, <!-- Unsafe is only used when it is available / enabled, see  https://github.com/open-telemetry/opentelemetry-java/pull/6433 -->
+                            *
+                        </Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
