@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-context</artifactId>
+            <artifactId>${project.artifactId}</artifactId>
             <version>${opentelemetry.version}</version>
         </dependency>
     </dependencies>

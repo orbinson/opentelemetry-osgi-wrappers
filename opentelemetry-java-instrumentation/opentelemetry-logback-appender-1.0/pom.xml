@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-logback-appender-1.0</artifactId>
+            <artifactId>${project.artifactId}</artifactId>
             <version>${opentelemetry.version}-alpha</version>
         </dependency>
     </dependencies>

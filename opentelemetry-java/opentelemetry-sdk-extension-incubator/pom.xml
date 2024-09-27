@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-sdk-extension-incubator</artifactId>
+            <artifactId>${project.artifactId}</artifactId>
             <version>${opentelemetry.version}-alpha</version>
         </dependency>
     </dependencies>

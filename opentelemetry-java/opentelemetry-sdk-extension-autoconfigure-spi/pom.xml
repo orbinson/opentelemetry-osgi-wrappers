@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-sdk-extension-autoconfigure-spi</artifactId>
+            <artifactId>${project.artifactId}</artifactId>
             <version>${opentelemetry.version}</version>
         </dependency>
     </dependencies>
