@@ -1,7 +1,6 @@
 {
-  "id": "${project.groupId}:${project.artifactId}:model:${project.version}",
+  "id": "${project.groupId}:${project.artifactId}:slingfeature:osgi:${project.version}",
   "bundles": [
-    // OSGi
     {
       "id": "org.osgi:org.osgi.util.promise:1.1.1",
       "start-order": "1"
@@ -37,24 +36,6 @@
     {
       "id": "org.apache.felix:org.apache.felix.http.jetty:4.0.16",
       "start-order": "5"
-    },
-    // OpenTelemetry OSGi wrappers
-    {
-      "id": "${project.groupId}:opentelemetry-java:${opentelemetry.java.version}.000-SNAPSHOT",
-      "start-order": "5"
-    },
-    {
-      "id": "${project.groupId}:opentelemetry-java-instrumentation:${opentelemetry.java.instrumentation.version}.000-SNAPSHOT",
-      "start-order": "5"
-    },
-    {
-      "id": "${project.groupId}:semantic-conventions-java:${opentelemetry.semconv.version}.000-SNAPSHOT",
-      "start-order": "5"
-    },
-    // Actual project
-    {
-      "id": "${project.groupId}:${project.artifactId}:${project.version}",
-      "start-order": 20
     }
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "id": "${project.groupId}:${project.artifactId}:slingfeature:test-project:${project.version}",
+  "bundles": [
+    {
+      "id": "${project.groupId}:${project.artifactId}:${project.version}",
+      "start-order": 20
+    }
+  ]
+}

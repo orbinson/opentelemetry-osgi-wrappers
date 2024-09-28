@@ -1,0 +1,29 @@
+{
+  "id": "${project.groupId}:${project.artifactId}:slingfeature:logging:${project.version}",
+  "bundles": [
+    {
+      "id": "org.slf4j:jcl-over-slf4j:1.7.25",
+      "start-order": "1"
+    },
+    {
+      "id": "org.slf4j:log4j-over-slf4j:1.7.25",
+      "start-order": "1"
+    },
+    {
+      "id": "org.slf4j:slf4j-api:1.7.25",
+      "start-order": "1"
+    },
+    {
+      "id": "org.apache.logging.log4j:log4j-api:2.22.0",
+      "start-order": 1
+    },
+    {
+      "id": "org.apache.felix:org.apache.felix.log:1.2.2",
+      "start-order": "1"
+    },
+    {
+      "id": "org.apache.sling:org.apache.sling.commons.log:5.1.12",
+      "start-order": "1"
+    }
+  ]
+}
