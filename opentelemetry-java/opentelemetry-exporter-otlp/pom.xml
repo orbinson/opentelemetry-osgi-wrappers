@@ -13,7 +13,7 @@
 
     <artifactId>opentelemetry-exporter-otlp</artifactId>
     <version>${opentelemetry.version}.000-SNAPSHOT</version>
-    <packaging>bundle</packaging>
+
 
     <properties>
         <opentelemetry.groupId>${opentelemetry.java.groupId}</opentelemetry.groupId>
@@ -23,16 +23,22 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>5.1.9</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <!-- We are using okhttp as sender, which does not have a dependency on grpc -->
-                        <Import-Package>io.grpc*;resolution:=optional,*</Import-Package>
-                    </instructions>
-                </configuration>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>bnd-process</id>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                        <configuration>
+                            <bnd><![CDATA[
+                        # We are using okhttp as sender, which does not have a dependency on grpc
+                        Import-Package: io.grpc*;resolution:=optional,*
+                   ]]></bnd>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -42,6 +48,12 @@
             <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>${project.artifactId}</artifactId>
             <version>${opentelemetry.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 </project>

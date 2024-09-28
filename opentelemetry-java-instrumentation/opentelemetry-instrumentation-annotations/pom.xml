@@ -13,7 +13,7 @@
 
     <artifactId>opentelemetry-instrumentation-annotations</artifactId>
     <version>${opentelemetry.version}.000-SNAPSHOT</version>
-    <packaging>bundle</packaging>
+
 
     <properties>
         <opentelemetry.groupId>${opentelemetry.java.instrumentation.groupId}</opentelemetry.groupId>

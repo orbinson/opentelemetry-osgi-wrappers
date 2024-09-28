@@ -13,7 +13,7 @@
 
     <artifactId>opentelemetry-sdk</artifactId>
     <version>${opentelemetry.version}.000-SNAPSHOT</version>
-    <packaging>bundle</packaging>
+
 
     <properties>
         <opentelemetry.groupId>${opentelemetry.java.groupId}</opentelemetry.groupId>
