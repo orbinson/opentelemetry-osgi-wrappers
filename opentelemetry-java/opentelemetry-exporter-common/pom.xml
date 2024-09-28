@@ -34,6 +34,9 @@
                             sun.misc;resolution:=optional, <!-- Unsafe is only used when it is available / enabled, see  https://github.com/open-telemetry/opentelemetry-java/pull/6433 -->
                             *
                         </Import-Package>
+                        <Require-Capability>
+                            osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)",
+                        </Require-Capability>
                     </instructions>
                 </configuration>
             </plugin>

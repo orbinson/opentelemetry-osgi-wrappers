@@ -30,3 +30,7 @@ Bundle with a subset of the [java-instrumentation](https://github.com/open-telem
 Bundle with artifacts from the [semantic-conventions-java](https://github.com/open-telemetry/semantic-conventions-java) libraries:
 
 * [opentelemetry-semconv](https://github.com/open-telemetry/semantic-conventions-java/tree/main/semconv)
+
+## TODO
+
+- Finish adding the correct osgi.serviceloader manifest headers

@@ -31,6 +31,13 @@
                     <instructions>
                         <!-- We are using okhttp as sender, which does not have a dependency on grpc -->
                         <Import-Package>io.grpc*;resolution:=optional,*</Import-Package>
+                        <Require-Capability>
+                            osgi.extender;filter:="(osgi.extender=osgi.serviceloader.registrar)"
+                        </Require-Capability>
+                        <Provide-Capability>
+                            osgi.serviceloader;osgi.serviceloader="io.opentelemetry.exporter.internal.grpc.GrpcSenderProvider",
+                            osgi.serviceloader;osgi.serviceloader="io.opentelemetry.exporter.internal.http.HttpSenderProvider"
+                        </Provide-Capability>
                     </instructions>
                 </configuration>
             </plugin>
