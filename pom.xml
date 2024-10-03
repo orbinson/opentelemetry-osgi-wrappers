@@ -117,7 +117,7 @@
                 <plugin>
                     <groupId>biz.aQute.bnd</groupId>
                     <artifactId>bnd-maven-plugin</artifactId>
-                    <version>7.0.0</version>
+                    <version>7.1.0-SNAPSHOT</version>
                     <executions>
                         <execution>
                             <id>bnd-process</id>
@@ -133,6 +133,10 @@ Export-Package: ${opentelemetry.groupId}.*
 -snapshot: SNAPSHOT
 
 -includeresource: @*.jar;lib:=true
+-conditionalpackage: *
+
+-metainf-services: auto
+-buildpath: biz.aQute.bndlib;version='7.0'
                                 ]]></bnd>
                             </configuration>
                         </execution>
