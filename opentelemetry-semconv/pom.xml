@@ -17,6 +17,7 @@
 
     <properties>
         <opentelemetry.groupId>${opentelemetry.semconv.groupId}</opentelemetry.groupId>
+        <opentelemetry.artifactId>${project.artifactId}</opentelemetry.artifactId>
         <opentelemetry.version>${opentelemetry.semconv.version}</opentelemetry.version>
     </properties>
 
@@ -25,11 +26,23 @@
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-semconv</artifactId>
             <version>1.25.0-alpha</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>opentelemetry-semconv</artifactId>
             <version>${opentelemetry.version}-alpha</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 </project>

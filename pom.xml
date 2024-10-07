@@ -132,11 +132,8 @@ Export-Package: ${opentelemetry.groupId}.*
 -noextraheaders: true
 -snapshot: SNAPSHOT
 
--includeresource: @*.jar;lib:=true
--conditionalpackage: *
-
+-includeresource: @${opentelemetry.artifactId}-*.jar;lib:=true
 -metainf-services: auto
--buildpath: biz.aQute.bndlib;version='7.0'
                                 ]]></bnd>
                             </configuration>
                         </execution>
@@ -268,4 +265,13 @@ Export-Package: ${opentelemetry.groupId}.*
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+    <!-- Required to make the ServiceLoader annotations be picked up -->
+    <dependencies>
+        <dependency>
+            <groupId>biz.aQute.bnd</groupId>
+            <artifactId>biz.aQute.bnd.annotation</artifactId>
+            <version>7.0.0</version>
+        </dependency>
+    </dependencies>
 </project>

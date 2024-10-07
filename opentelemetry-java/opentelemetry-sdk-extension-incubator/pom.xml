@@ -17,6 +17,7 @@
 
     <properties>
         <opentelemetry.groupId>${opentelemetry.java.groupId}</opentelemetry.groupId>
+        <opentelemetry.artifactId>${project.artifactId}</opentelemetry.artifactId>
         <opentelemetry.version>${opentelemetry.java.version}</opentelemetry.version>
     </properties>
 
@@ -25,6 +26,12 @@
             <groupId>${opentelemetry.groupId}</groupId>
             <artifactId>${project.artifactId}</artifactId>
             <version>${opentelemetry.version}-alpha</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 </project>
