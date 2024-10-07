@@ -37,6 +37,9 @@
                         # We are using okhttp as sender, which does not have a dependency on grpc
                         # Unsafe is only used when it is available / enabled, see  https://github.com/open-telemetry/opentelemetry-java/pull/6433
                         Import-Package:   io.grpc*;resolution:=optional,sun.misc;resolution:=optional,*
+
+                        # ServiceLoader consumer
+                        Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"
                     ]]></bnd>
                         </configuration>
                     </execution>

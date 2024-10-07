@@ -21,6 +21,30 @@
         <opentelemetry.version>${opentelemetry.java.version}</opentelemetry.version>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>bnd-process</id>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                        <configuration>
+                            <bnd><![CDATA[
+
+                            # ServiceLoader consumer
+                            Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"
+                   ]]></bnd>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>${opentelemetry.groupId}</groupId>
