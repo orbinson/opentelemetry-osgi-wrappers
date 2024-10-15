@@ -1,0 +1,21 @@
+{
+  "id": "${project.groupId}:${project.artifactId}:slingfeature:otlp-okhttp:${project.version}",
+  "bundles": [
+    {
+      "id": "${project.groupId}:opentelemetry-exporter-sender-okhttp:${opentelemetry.java.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "org.apache.servicemix.bundles:org.apache.servicemix.bundles.okhttp:4.10.0_3",
+      "start-order": 5
+    },
+    {
+      "id": "org.jetbrains.kotlin:kotlin-osgi-bundle:1.9.25",
+      "start-order": 5
+    },
+    {
+      "id": "org.apache.servicemix.bundles:org.apache.servicemix.bundles.okio:3.8.0_1",
+      "start-order": 5
+    }
+  ]
+}

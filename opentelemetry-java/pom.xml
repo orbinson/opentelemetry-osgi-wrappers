@@ -12,54 +12,26 @@
     </parent>
 
     <artifactId>opentelemetry-java</artifactId>
-    <version>${opentelemetry.version}.000-SNAPSHOT</version>
-    <packaging>bundle</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-    <properties>
-        <opentelemetry.groupId>io.opentelemetry</opentelemetry.groupId>
-        <opentelemetry.version>1.41.0</opentelemetry.version>
-    </properties>
+    <modules>
+        <module>opentelemetry-api</module>
+        <module>opentelemetry-api-incubator</module>
+        <module>opentelemetry-context</module>
+        <module>opentelemetry-sdk</module>
+        <module>opentelemetry-sdk-common</module>
+        <module>opentelemetry-sdk-logs</module>
+        <module>opentelemetry-sdk-metrics</module>
+        <module>opentelemetry-sdk-trace</module>
+        <module>opentelemetry-sdk-extension-autoconfigure</module>
+        <module>opentelemetry-sdk-extension-autoconfigure-spi</module>
+        <module>opentelemetry-sdk-extension-incubator</module>
+        <module>opentelemetry-exporter-common</module>
+        <module>opentelemetry-exporter-logging</module>
+        <module>opentelemetry-exporter-otlp</module>
+        <module>opentelemetry-exporter-otlp-common</module>
+        <module>opentelemetry-exporter-sender-okhttp</module>
+    </modules>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>${opentelemetry.groupId}</groupId>
-                <artifactId>opentelemetry-bom</artifactId>
-                <version>${opentelemetry.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-sdk</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-sdk-metrics</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-sdk-extension-autoconfigure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-sdk-extension-autoconfigure-spi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-exporter-otlp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>opentelemetry-exporter-logging</artifactId>
-        </dependency>
-    </dependencies>
 </project>

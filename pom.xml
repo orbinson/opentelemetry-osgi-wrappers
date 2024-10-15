@@ -19,7 +19,7 @@
     <modules>
         <module>opentelemetry-java</module>
         <module>opentelemetry-java-instrumentation</module>
-        <module>semantic-conventions-java</module>
+        <module>opentelemetry-semconv</module>
         <module>integration-tests</module>
     </modules>
 
@@ -32,9 +32,9 @@
         <sling.password>admin</sling.password>
 
         <opentelemetry.java.groupId>io.opentelemetry</opentelemetry.java.groupId>
-        <opentelemetry.java.version>1.41.0</opentelemetry.java.version>
+        <opentelemetry.java.version>1.43.0</opentelemetry.java.version>
         <opentelemetry.java.instrumentation.groupId>io.opentelemetry.instrumentation</opentelemetry.java.instrumentation.groupId>
-        <opentelemetry.java.instrumentation.version>1.32.0</opentelemetry.java.instrumentation.version>
+        <opentelemetry.java.instrumentation.version>1.33.6</opentelemetry.java.instrumentation.version>
         <opentelemetry.semconv.groupId>io.opentelemetry.semconv</opentelemetry.semconv.groupId>
         <opentelemetry.semconv.version>1.27.0</opentelemetry.semconv.version>
     </properties>
@@ -80,8 +80,8 @@
                 <artifactId>maven-source-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -97,6 +97,14 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>11</source>
+                        <target>11</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.5.3</version>
                     <configuration>
@@ -107,19 +115,40 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-bundle-plugin</artifactId>
-                    <version>5.1.9</version>
-                    <extensions>true</extensions>
+                    <groupId>biz.aQute.bnd</groupId>
+                    <artifactId>bnd-maven-plugin</artifactId>
+                    <version>7.0.0</version>
+                    <executions>
+                        <execution>
+                            <id>bnd-process</id>
+                            <goals>
+                                <goal>bnd-process</goal>
+                            </goals>
+                            <configuration>
+                                <bnd><![CDATA[
+Export-Package: ${opentelemetry.groupId}.*
+
+# reproducible builds (https://github.com/bndtools/bnd/issues/3521)
+-noextraheaders: true
+-snapshot: SNAPSHOT
+
+-includeresource: @${opentelemetry.artifactId}-*.jar;lib:=true
+
+# TODO: add once bnd 7.1+ is released and update all projects containing manual provide-capability headers, will auto-detect the service loader provide-capability
+# -metainf-services: auto
+                                ]]></bnd>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.1.2</version>
                     <configuration>
-                        <instructions>
-                            <Export-Package>${opentelemetry.groupId}.*</Export-Package>
-                            <Import-Package>*;resolution:=optional</Import-Package>
-                            <Embed-Dependency>*</Embed-Dependency>
-                            <Embed-Transitive>true</Embed-Transitive>
-                            <Bundle-Category>${project.organization.name}</Bundle-Category>
-                            <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-                        </instructions>
+                        <archive>
+                            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                        </archive>
                     </configuration>
                 </plugin>
                 <!-- Sonatype Release -->

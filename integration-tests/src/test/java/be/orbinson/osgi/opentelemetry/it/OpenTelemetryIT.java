@@ -19,6 +19,14 @@ public class OpenTelemetryIT {
     private static final int SLING_PORT = Integer.getInteger("HTTP_PORT", 8080);
 
     @Test
+    public void testOsgi() throws InterruptedException {
+        System.out.println("http://localhost:" + SLING_PORT + "/system/console");
+        if (System.getProperty("debug.osgi") != null) {
+            Thread.sleep(1000000);
+        }
+    }
+
+    @Test
     public void testOpenTelemetryBundlesActive() throws Exception {
         String url = "http://localhost:" + SLING_PORT + "/system/console/bundles.json";
 
@@ -31,9 +39,30 @@ public class OpenTelemetryIT {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         String responseBody = response.body();
-        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-java')]")).get(0).get("state"));
-        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='opentelemetry-java-instrumentation')]")).get(0).get("state"));
-        assertEquals("Active", ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='semantic-conventions-java')]")).get(0).get("state"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-api"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-api-incubator"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-context"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-exporter-common"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-exporter-logging"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-exporter-otlp"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-exporter-otlp-common"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-exporter-sender-okhttp"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-sdk"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-sdk-common"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-sdk-extension-autoconfigure"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-sdk-extension-autoconfigure-spi"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-sdk-extension-incubator"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-sdk-logs"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-sdk-metrics"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-sdk-trace"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-instrumentation-annotations"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-instrumentation-api"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-logback-appender-1.0"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-semconv"));
+    }
+
+    private static String getState(String responseBody, String bundleName) {
+        return (String) ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='" + bundleName + "')]")).get(0).get("state");
     }
 
     @Test

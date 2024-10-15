@@ -1,0 +1,17 @@
+{
+  "id": "${project.groupId}:${project.artifactId}:slingfeature:opentelemetry-java-instrumentation:${project.version}",
+  "bundles": [
+    {
+      "id": "${project.groupId}:opentelemetry-instrumentation-annotations:${opentelemetry.java.instrumentation.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-instrumentation-api:${opentelemetry.java.instrumentation.version}.000-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-logback-appender-1.0:${opentelemetry.java.instrumentation.version}.000-SNAPSHOT",
+      "start-order": 5
+    }
+  ]
+}

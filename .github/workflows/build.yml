@@ -12,3 +12,5 @@ on:
 jobs:
   aem-maven-build:
     uses: orbinson/workflows/.github/workflows/aem-maven-build.yml@main
+    with:
+      java-version: 17

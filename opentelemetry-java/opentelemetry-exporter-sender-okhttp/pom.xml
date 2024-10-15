@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>be.orbinson.osgi</groupId>
+        <artifactId>opentelemetry-java</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>opentelemetry-exporter-sender-okhttp</artifactId>
+    <version>${opentelemetry.version}.000-SNAPSHOT</version>
+
+
+    <properties>
+        <opentelemetry.groupId>${opentelemetry.java.groupId}</opentelemetry.groupId>
+        <opentelemetry.artifactId>${project.artifactId}</opentelemetry.artifactId>
+        <opentelemetry.version>${opentelemetry.java.version}</opentelemetry.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>bnd-process</id>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                        <configuration>
+                            <bnd><![CDATA[
+                        # We are using okhttp as sender, which does not have a dependency on grpc
+                        Import-Package: io.grpc*;resolution:=optional,*
+
+                         # ServiceLoader provider
+                         # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
+                         Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.exporter.internal.grpc.GrpcSenderProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.exporter.internal.http.HttpSenderProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.exporter.internal.grpc.GrpcSenderProvider";register:="io.opentelemetry.exporter.sender.okhttp.internal.OkHttpGrpcSenderProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.exporter.internal.http.HttpSenderProvider";register:="io.opentelemetry.exporter.sender.okhttp.internal.OkHttpHttpSenderProvider"
+                   ]]></bnd>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${opentelemetry.groupId}</groupId>
+            <artifactId>${project.artifactId}</artifactId>
+            <version>${opentelemetry.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>
