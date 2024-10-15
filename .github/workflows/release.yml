@@ -34,9 +34,7 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
       - name: Remove SNAPSHOT from version
-        run: |
-          mvn --batch-mode versions:set -DremoveSnapshot versions:commit
-          find . -name "pom.xml" -exec sed -i "" 's#.0000-SNAPSHOT#.0000#g' {} +
+        run: find . -name "pom.xml" -exec sed -i 's#-SNAPSHOT##g' {} +
 
       - name: Deploy package
         if: ${{ inputs.central }}
