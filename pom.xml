@@ -16,6 +16,8 @@
         <url>https://github.com/orbinson/opentelemetry-osgi-wrappers.git</url>
     </scm>
 
+    <url>https://github.com/orbinson/opentelemetry-osgi-wrappers</url>
+
     <modules>
         <module>opentelemetry-java</module>
         <module>opentelemetry-java-instrumentation</module>
@@ -95,6 +97,19 @@
 
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.4.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
