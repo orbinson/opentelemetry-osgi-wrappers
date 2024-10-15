@@ -21,6 +21,30 @@
         <opentelemetry.version>${opentelemetry.java.version}</opentelemetry.version>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>bnd-process</id>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                        <configuration>
+                            <bnd><![CDATA[
+                         # ServiceLoader provider
+                         # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
+                         Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider";register:="io.opentelemetry.sdk.extension.incubator.metric.viewconfig.ViewConfigCustomizer",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";register:="io.opentelemetry.sdk.extension.incubator.resources.ServiceInstanceIdResourceProvider"
+                        ]]></bnd>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>${opentelemetry.groupId}</groupId>

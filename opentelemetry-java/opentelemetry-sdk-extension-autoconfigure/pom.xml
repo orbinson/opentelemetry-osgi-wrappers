@@ -37,6 +37,10 @@
 
                             # ServiceLoader consumer
                             Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"
+
+                            # ServiceLoader provider
+                            # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
+                            Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";register:="io.opentelemetry.sdk.autoconfigure.internal.EnvironmentResourceProvider"
                    ]]></bnd>
                         </configuration>
                     </execution>

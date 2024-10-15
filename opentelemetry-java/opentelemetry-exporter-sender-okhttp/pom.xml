@@ -36,6 +36,10 @@
                             <bnd><![CDATA[
                         # We are using okhttp as sender, which does not have a dependency on grpc
                         Import-Package: io.grpc*;resolution:=optional,*
+
+                         # ServiceLoader provider
+                         # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
+                         Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.exporter.internal.grpc.GrpcSenderProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.exporter.internal.http.HttpSenderProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.exporter.internal.grpc.GrpcSenderProvider";register:="io.opentelemetry.exporter.sender.okhttp.internal.OkHttpGrpcSenderProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.exporter.internal.http.HttpSenderProvider";register:="io.opentelemetry.exporter.sender.okhttp.internal.OkHttpHttpSenderProvider"
                    ]]></bnd>
                         </configuration>
                     </execution>
