@@ -12,14 +12,7 @@
     </parent>
 
     <artifactId>opentelemetry-exporter-otlp</artifactId>
-    <version>${opentelemetry.version}.000-SNAPSHOT</version>
-
-
-    <properties>
-        <opentelemetry.groupId>${opentelemetry.java.groupId}</opentelemetry.groupId>
-        <opentelemetry.artifactId>${project.artifactId}</opentelemetry.artifactId>
-        <opentelemetry.version>${opentelemetry.java.version}</opentelemetry.version>
-    </properties>
+    <version>1.43.0.0000-SNAPSHOT</version>
 
     <build>
         <plugins>
@@ -34,13 +27,13 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-                        # We are using okhttp as sender, which does not have a dependency on grpc
-                        Import-Package: io.grpc*;resolution:=optional,*
+                                # We are using okhttp as sender, which does not have a dependency on grpc
+                                Import-Package: io.grpc*;resolution:=optional,*
 
-                        # ServiceLoader provider
-                        # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
-                        Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.internal.ComponentProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.logs.ConfigurableLogRecordExporterProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.metrics.ConfigurableMetricExporterProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.traces.ConfigurableSpanExporterProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.internal.ComponentProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpLogRecordExporterComponentProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.internal.ComponentProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpMetricExporterComponentProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.internal.ComponentProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpSpanExporterComponentProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.logs.ConfigurableLogRecordExporterProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpLogRecordExporterProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.metrics.ConfigurableMetricExporterProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpMetricExporterProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.traces.ConfigurableSpanExporterProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpSpanExporterProvider"
-                   ]]></bnd>
+                                # ServiceLoader provider
+                                # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
+                                Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.internal.ComponentProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.logs.ConfigurableLogRecordExporterProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.metrics.ConfigurableMetricExporterProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.traces.ConfigurableSpanExporterProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.internal.ComponentProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpLogRecordExporterComponentProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.internal.ComponentProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpMetricExporterComponentProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.internal.ComponentProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpSpanExporterComponentProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.logs.ConfigurableLogRecordExporterProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpLogRecordExporterProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.metrics.ConfigurableMetricExporterProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpMetricExporterProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.traces.ConfigurableSpanExporterProvider";register:="io.opentelemetry.exporter.otlp.internal.OtlpSpanExporterProvider"
+                            ]]></bnd>
                         </configuration>
                     </execution>
                 </executions>
@@ -50,9 +43,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>${project.artifactId}</artifactId>
-            <version>${opentelemetry.version}</version>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-otlp</artifactId>
+            <version>1.43.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

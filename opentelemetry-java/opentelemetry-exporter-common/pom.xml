@@ -12,14 +12,7 @@
     </parent>
 
     <artifactId>opentelemetry-exporter-common</artifactId>
-    <version>${opentelemetry.version}.000-SNAPSHOT</version>
-
-
-    <properties>
-        <opentelemetry.groupId>${opentelemetry.java.groupId}</opentelemetry.groupId>
-        <opentelemetry.artifactId>${project.artifactId}</opentelemetry.artifactId>
-        <opentelemetry.version>${opentelemetry.java.version}</opentelemetry.version>
-    </properties>
+    <version>1.43.0.0000-SNAPSHOT</version>
 
     <build>
         <plugins>
@@ -34,13 +27,13 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-                        # We are using okhttp as sender, which does not have a dependency on grpc
-                        # Unsafe is only used when it is available / enabled, see  https://github.com/open-telemetry/opentelemetry-java/pull/6433
-                        Import-Package:   io.grpc*;resolution:=optional,sun.misc;resolution:=optional,*
+                                # We are using okhttp as sender, which does not have a dependency on grpc
+                                # Unsafe is only used when it is available / enabled, see  https://github.com/open-telemetry/opentelemetry-java/pull/6433
+                                Import-Package:   io.grpc*;resolution:=optional,sun.misc;resolution:=optional,*
 
-                        # ServiceLoader consumer
-                        Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"
-                    ]]></bnd>
+                                # ServiceLoader consumer
+                                Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"
+                            ]]></bnd>
                         </configuration>
                     </execution>
                 </executions>
@@ -50,9 +43,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>${project.artifactId}</artifactId>
-            <version>${opentelemetry.version}</version>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-common</artifactId>
+            <version>1.43.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

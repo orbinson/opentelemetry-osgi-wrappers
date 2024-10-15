@@ -12,14 +12,7 @@
     </parent>
 
     <artifactId>opentelemetry-sdk-extension-incubator</artifactId>
-    <version>${opentelemetry.version}.000-SNAPSHOT</version>
-
-
-    <properties>
-        <opentelemetry.groupId>${opentelemetry.java.groupId}</opentelemetry.groupId>
-        <opentelemetry.artifactId>${project.artifactId}</opentelemetry.artifactId>
-        <opentelemetry.version>${opentelemetry.java.version}</opentelemetry.version>
-    </properties>
+    <version>1.43.0.0000-SNAPSHOT</version>
 
     <build>
         <plugins>
@@ -34,10 +27,10 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-                         # ServiceLoader provider
-                         # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
-                         Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider";register:="io.opentelemetry.sdk.extension.incubator.metric.viewconfig.ViewConfigCustomizer",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";register:="io.opentelemetry.sdk.extension.incubator.resources.ServiceInstanceIdResourceProvider"
-                        ]]></bnd>
+                                # ServiceLoader provider
+                                # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
+                                Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider";register:="io.opentelemetry.sdk.extension.incubator.metric.viewconfig.ViewConfigCustomizer",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";register:="io.opentelemetry.sdk.extension.incubator.resources.ServiceInstanceIdResourceProvider"
+                            ]]></bnd>
                         </configuration>
                     </execution>
                 </executions>
@@ -47,9 +40,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>${project.artifactId}</artifactId>
-            <version>${opentelemetry.version}-alpha</version>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-sdk-extension-incubator</artifactId>
+            <version>1.43.0-alpha</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

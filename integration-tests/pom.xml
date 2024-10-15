@@ -30,21 +30,21 @@
 
         <!-- OpenTelemetry -->
         <dependency>
-            <groupId>${opentelemetry.java.groupId}</groupId>
+            <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-api</artifactId>
-            <version>${opentelemetry.java.version}</version>
+            <version>1.43.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>${opentelemetry.java.groupId}</groupId>
+            <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-sdk</artifactId>
-            <version>${opentelemetry.java.version}</version>
+            <version>1.43.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>${opentelemetry.java.groupId}</groupId>
+            <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-sdk-testing</artifactId>
-            <version>${opentelemetry.java.version}</version>
+            <version>1.43.0</version>
         </dependency>
 
         <!-- Testing -->
@@ -78,7 +78,7 @@
                         Export-Package: be.orbinson.osgi.opentelemetry
                         Import-Package: *;resolution:=optional
 
-                        -includeresource: @opentelemetry-sdk-testing-${opentelemetry.java.version}.jar;lib:=true
+                        -includeresource: @opentelemetry-sdk-testing-1.43.0.jar;lib:=true
                    ]]></bnd>
                         </configuration>
                     </execution>
@@ -171,10 +171,11 @@
                                 <frameworkProperties>
                                     <org.osgi.service.http.port>${http.port}</org.osgi.service.http.port>
                                 </frameworkProperties>
-                                <!-- Uncomment to enable debugging of IT tests -->
-<!--                                                                        <vmOptions>-->
-<!--                                                                            <value>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5000</value>-->
-<!--                                                                        </vmOptions>-->
+                                <!-- Uncomment to enable debugging of IT tests
+                                <vmOptions>
+                                <value>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5000</value>
+                                </vmOptions>
+                                -->
                             </launcherArguments>
                             <startTimeoutSeconds>180</startTimeoutSeconds>
                         </launch>

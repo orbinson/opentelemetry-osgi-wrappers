@@ -14,11 +14,6 @@
     <artifactId>opentelemetry-java-instrumentation</artifactId>
     <packaging>pom</packaging>
 
-    <properties>
-        <opentelemetry.groupId>${opentelemetry.java.instrumentation.groupId}</opentelemetry.groupId>
-        <opentelemetry.version>${opentelemetry.java.instrumentation.version}</opentelemetry.version>
-    </properties>
-
     <modules>
         <module>opentelemetry-instrumentation-annotations</module>
         <module>opentelemetry-instrumentation-api</module>

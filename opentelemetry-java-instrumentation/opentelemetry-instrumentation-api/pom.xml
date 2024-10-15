@@ -12,20 +12,13 @@
     </parent>
 
     <artifactId>opentelemetry-instrumentation-api</artifactId>
-    <version>${opentelemetry.version}.000-SNAPSHOT</version>
-
-
-    <properties>
-        <opentelemetry.groupId>${opentelemetry.java.instrumentation.groupId}</opentelemetry.groupId>
-        <opentelemetry.artifactId>${project.artifactId}</opentelemetry.artifactId>
-        <opentelemetry.version>${opentelemetry.java.instrumentation.version}</opentelemetry.version>
-    </properties>
+    <version>1.33.6.0000-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>${project.artifactId}</artifactId>
-            <version>${opentelemetry.version}</version>
+            <groupId>io.opentelemetry.instrumentation</groupId>
+            <artifactId>opentelemetry-instrumentation-api</artifactId>
+            <version>1.33.6</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

@@ -33,5 +33,4 @@
         <module>opentelemetry-exporter-otlp-common</module>
         <module>opentelemetry-exporter-sender-okhttp</module>
     </modules>
-
 </project>

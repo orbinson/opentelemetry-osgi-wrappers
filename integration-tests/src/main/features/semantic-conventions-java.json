@@ -2,7 +2,7 @@
   "id": "${project.groupId}:${project.artifactId}:slingfeature:opentelemetry-semconv:${project.version}",
   "bundles": [
     {
-      "id": "${project.groupId}:opentelemetry-semconv:${opentelemetry.semconv.version}.000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-semconv:1.27.0-alpha.0000-SNAPSHOT",
       "start-order": 5
     }
   ]
