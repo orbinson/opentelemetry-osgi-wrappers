@@ -12,20 +12,13 @@
     </parent>
 
     <artifactId>opentelemetry-sdk-common</artifactId>
-    <version>${opentelemetry.version}.000-SNAPSHOT</version>
-
-
-    <properties>
-        <opentelemetry.groupId>${opentelemetry.java.groupId}</opentelemetry.groupId>
-        <opentelemetry.artifactId>${project.artifactId}</opentelemetry.artifactId>
-        <opentelemetry.version>${opentelemetry.java.version}</opentelemetry.version>
-    </properties>
+    <version>1.43.0.0000-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
-            <groupId>${opentelemetry.groupId}</groupId>
-            <artifactId>${project.artifactId}</artifactId>
-            <version>${opentelemetry.version}</version>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-sdk-common</artifactId>
+            <version>1.43.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

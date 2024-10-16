@@ -2,7 +2,7 @@
   "id": "${project.groupId}:${project.artifactId}:slingfeature:otlp-okhttp:${project.version}",
   "bundles": [
     {
-      "id": "${project.groupId}:opentelemetry-exporter-sender-okhttp:${opentelemetry.java.version}.000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-exporter-sender-okhttp:1.43.0.0000-SNAPSHOT",
       "start-order": 5
     },
     {

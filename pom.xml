@@ -27,18 +27,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <sling.host>localhost</sling.host>
         <sling.port>8080</sling.port>
         <sling.user>admin</sling.user>
         <sling.password>admin</sling.password>
-
-        <opentelemetry.java.groupId>io.opentelemetry</opentelemetry.java.groupId>
-        <opentelemetry.java.version>1.43.0</opentelemetry.java.version>
-        <opentelemetry.java.instrumentation.groupId>io.opentelemetry.instrumentation</opentelemetry.java.instrumentation.groupId>
-        <opentelemetry.java.instrumentation.version>1.33.6</opentelemetry.java.instrumentation.version>
-        <opentelemetry.semconv.groupId>io.opentelemetry.semconv</opentelemetry.semconv.groupId>
-        <opentelemetry.semconv.version>1.27.0</opentelemetry.semconv.version>
     </properties>
 
     <organization>
@@ -99,20 +91,8 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.4.1</version>
-                    <executions>
-                        <execution>
-                            <id>attach-javadocs</id>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.13.0</version>
                     <configuration>
                         <source>11</source>
                         <target>11</target>
@@ -141,13 +121,14 @@
                             </goals>
                             <configuration>
                                 <bnd><![CDATA[
-Export-Package: ${opentelemetry.groupId}.*
+Export-Package: io.opentelemetry.*
 
 # reproducible builds (https://github.com/bndtools/bnd/issues/3521)
 -noextraheaders: true
 -snapshot: SNAPSHOT
 
--includeresource: @${opentelemetry.artifactId}-*.jar;lib:=true
+-includeresource: @opentelemetry-*.jar;lib:=true
+-split-package: merge-first
 
 # TODO: add once bnd 7.1+ is released and update all projects containing manual provide-capability headers, will auto-detect the service loader provide-capability
 # -metainf-services: auto
@@ -165,6 +146,19 @@ Export-Package: ${opentelemetry.groupId}.*
                             <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
                         </archive>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>empty-javadoc-jar</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                            <configuration>
+                                <classifier>javadoc</classifier>
+                                <classesDirectory>${basedir}/javadoc</classesDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
                 <!-- Sonatype Release -->
                 <plugin>

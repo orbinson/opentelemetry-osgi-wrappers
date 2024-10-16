@@ -4,31 +4,44 @@ on:
   workflow_dispatch:
     inputs:
       central:
-        description: 'Release to Maven Central'
-        required: false
-        default: true
-        type: boolean
-      github:
-        description: 'Create GitHub release'
-        required: false
-        default: true
-        type: boolean
-      push:
-        description: 'Push changes'
+        description: Release to Maven repository
         required: false
         default: true
         type: boolean
 
+permissions:
+  contents: write
+
 jobs:
-  maven-release:
-    uses: orbinson/workflows/.github/workflows/maven-release.yml@main
-    with:
-      java-version: 17
-      central: ${{ inputs.central }}
-      github: ${{ inputs.github }}
-      push: ${{ inputs.push }}
-    secrets:
-      username: ${{ secrets.SONATYPE_USERNAME }}
-      password: ${{ secrets.SONATYPE_PASSWORD }}
-      gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+  release:
+    name: Maven Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java with Maven repository
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 17
+          cache: maven
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      - name: Remove SNAPSHOT from version
+        run: |
+          find . -name "pom.xml" -exec sed -i 's#-SNAPSHOT##g' {} +
+          sed -i 's#-SNAPSHOT##g' integration-tests/src/main/features/*.json
+
+      - name: Deploy package
+        if: ${{ inputs.central }}
+        run: mvn --batch-mode deploy --activate-profiles release
+        env:
+          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
