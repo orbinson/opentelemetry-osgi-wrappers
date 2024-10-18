@@ -13,6 +13,7 @@
 
     <artifactId>opentelemetry-sdk</artifactId>
     <version>1.43.0.0001-SNAPSHOT</version>
+    <name>OpenTelemetry - SDK</name>
 
     <dependencies>
         <dependency>

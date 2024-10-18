@@ -61,8 +61,8 @@ public class OpenTelemetryIT {
         assertEquals("Active", getState(responseBody, "opentelemetry-semconv"));
     }
 
-    private static String getState(String responseBody, String bundleName) {
-        return (String) ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.name=='" + bundleName + "')]")).get(0).get("state");
+    private static String getState(String responseBody, String symbolicName) {
+        return (String) ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.symbolicName=='" + symbolicName + "')]")).get(0).get("state");
     }
 
     @Test

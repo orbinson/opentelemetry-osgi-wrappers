@@ -13,6 +13,7 @@
 
     <artifactId>opentelemetry-logback-appender-1.0</artifactId>
     <version>1.33.6-alpha.0001-SNAPSHOT</version>
+    <name>OpenTelemetry - Instrumentation - Logback Appender 1.0</name>
 
     <dependencies>
         <dependency>

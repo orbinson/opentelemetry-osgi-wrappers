@@ -13,6 +13,7 @@
 
     <artifactId>opentelemetry-instrumentation-api</artifactId>
     <version>1.33.6.0001-SNAPSHOT</version>
+    <name>OpenTelemetry - Instrumentation - API</name>
 
     <dependencies>
         <dependency>
