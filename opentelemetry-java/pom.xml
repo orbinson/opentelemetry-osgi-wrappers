@@ -7,13 +7,13 @@
     <parent>
         <groupId>be.orbinson.osgi</groupId>
         <artifactId>opentelemetry-osgi-wrappers</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.3-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>opentelemetry-java</artifactId>
     <name>OpenTelemetry - Java</name>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
