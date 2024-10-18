@@ -26,7 +26,7 @@ Bundle with artifacts from the [opentelemetry-java](https://github.com/open-tele
 
 ## OpenTelemetry Java Instrumentation
 
-Bundle with a subset of the [java-instrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) libraries:
+Bundle with a subset of the [opentelmetry-java-instrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) libraries:
 
 * [apache-httpclient-4.3](https://github.com/open-telemetry/opentelemetry-java-instrumentation/tree/main/instrumentation/apache-httpclient/apache-httpclient-4.3/library)
 * [opentelemetry-instrumentation-annotations](https://github.com/open-telemetry/opentelemetry-java-instrumentation/tree/main/instrumentation-annotations)
