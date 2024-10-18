@@ -12,6 +12,7 @@
     </parent>
 
     <artifactId>integration-tests</artifactId>
+    <name>Integration Tests</name>
 
     <dependencies>
         <!-- OSGi -->

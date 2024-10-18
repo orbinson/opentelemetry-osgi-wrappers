@@ -12,11 +12,14 @@
     </parent>
 
     <artifactId>opentelemetry-java-instrumentation</artifactId>
+    <name>OpenTelemetry - Java Instrumentation</name>
     <packaging>pom</packaging>
 
     <modules>
+        <module>opentelemetry-apache-httpclient-4.3</module>
         <module>opentelemetry-instrumentation-annotations</module>
         <module>opentelemetry-instrumentation-api</module>
+        <module>opentelemetry-instrumentation-api-incubator</module>
         <module>opentelemetry-logback-appender-1.0</module>
     </modules>
 </project>

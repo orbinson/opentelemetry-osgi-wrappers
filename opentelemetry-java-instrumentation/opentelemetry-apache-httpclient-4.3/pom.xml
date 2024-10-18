@@ -11,15 +11,15 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>opentelemetry-instrumentation-api</artifactId>
-    <version>2.9.0.0001-SNAPSHOT</version>
-    <name>OpenTelemetry - Instrumentation - API</name>
+    <artifactId>opentelemetry-apache-httpclient-4.3</artifactId>
+    <version>2.9.0-alpha.0001-SNAPSHOT</version>
+    <name>OpenTelemetry - Instrumentation - Apache HttpClient 4.3</name>
 
     <dependencies>
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
-            <artifactId>opentelemetry-instrumentation-api</artifactId>
-            <version>2.9.0</version>
+            <artifactId>opentelemetry-apache-httpclient-4.3</artifactId>
+            <version>2.9.0-alpha</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

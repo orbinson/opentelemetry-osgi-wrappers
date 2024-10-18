@@ -28,6 +28,9 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
+                                Bundle-Name: ${project.name}
+                                Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
+
                                 # We are using okhttp as sender, which does not have a dependency on grpc
                                 Import-Package: io.grpc*;resolution:=optional,*
 

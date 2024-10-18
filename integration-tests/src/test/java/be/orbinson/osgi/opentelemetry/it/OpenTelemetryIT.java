@@ -57,12 +57,14 @@ public class OpenTelemetryIT {
         assertEquals("Active", getState(responseBody, "opentelemetry-sdk-trace"));
         assertEquals("Active", getState(responseBody, "opentelemetry-instrumentation-annotations"));
         assertEquals("Active", getState(responseBody, "opentelemetry-instrumentation-api"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-instrumentation-api-incubator"));
         assertEquals("Active", getState(responseBody, "opentelemetry-logback-appender-1.0"));
+        assertEquals("Active", getState(responseBody, "opentelemetry-apache-httpclient-4.3"));
         assertEquals("Active", getState(responseBody, "opentelemetry-semconv"));
     }
 
     private static String getState(String responseBody, String symbolicName) {
-        return (String) ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.symbolicName=='" + symbolicName + "')]")).get(0).get("state");
+        return (String) ((List<Map<String, Object>>) JsonPath.read(responseBody, "$.data[?(@.symbolicName=='be.orbinson.osgi." + symbolicName + "')]")).get(0).get("state");
     }
 
     @Test

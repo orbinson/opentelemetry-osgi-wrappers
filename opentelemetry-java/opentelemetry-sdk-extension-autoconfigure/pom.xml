@@ -28,6 +28,9 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
+                                Bundle-Name: ${project.name}
+                                Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
+
                                 # ServiceLoader consumer
                                 # TODO: add back once bnd 7.1+ is released
                                 # Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"

@@ -124,6 +124,7 @@
 Export-Package: io.opentelemetry.*
 Bundle-Name: ${project.name}
 Bundle-Category: OpenTelemetry
+Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
 
 # reproducible builds (https://github.com/bndtools/bnd/issues/3521)
 -noextraheaders: true

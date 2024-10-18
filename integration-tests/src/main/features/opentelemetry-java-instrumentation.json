@@ -2,15 +2,31 @@
   "id": "${project.groupId}:${project.artifactId}:slingfeature:opentelemetry-java-instrumentation:${project.version}",
   "bundles": [
     {
-      "id": "${project.groupId}:opentelemetry-instrumentation-annotations:1.33.6.0001-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-instrumentation-annotations:2.9.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-instrumentation-api:1.33.6.0001-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-instrumentation-api:2.9.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-logback-appender-1.0:1.33.6-alpha.0001-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-instrumentation-api-incubator:2.9.0-alpha.0001-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-logback-appender-1.0:2.9.0-alpha.0001-SNAPSHOT",
+      "start-order": 5
+    },
+    {
+      "id": "org.apache.httpcomponents:httpcore-osgi:4.4.8",
+      "start-order": 5
+    },
+    {
+      "id": "org.apache.httpcomponents:httpclient-osgi:4.5.13",
+      "start-order": 5
+    },
+    {
+      "id": "${project.groupId}:opentelemetry-apache-httpclient-4.3:2.9.0-alpha.0001-SNAPSHOT",
       "start-order": 5
     }
   ]

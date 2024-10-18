@@ -11,15 +11,15 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>opentelemetry-instrumentation-api</artifactId>
-    <version>2.9.0.0001-SNAPSHOT</version>
-    <name>OpenTelemetry - Instrumentation - API</name>
+    <artifactId>opentelemetry-instrumentation-api-incubator</artifactId>
+    <version>2.9.0-alpha.0001-SNAPSHOT</version>
+    <name>OpenTelemetry - Instrumentation - API Incubator</name>
 
     <dependencies>
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
-            <artifactId>opentelemetry-instrumentation-api</artifactId>
-            <version>2.9.0</version>
+            <artifactId>opentelemetry-instrumentation-api-incubator</artifactId>
+            <version>2.9.0-alpha</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

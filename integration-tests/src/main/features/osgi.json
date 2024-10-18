@@ -30,6 +30,10 @@
       "start-order": "1"
     },
     {
+      "id": "org.apache.felix:org.apache.felix.configadmin:1.9.24",
+      "start-order": "1"
+    },
+    {
       "id": "org.apache.felix:org.apache.felix.http.servlet-api:1.1.2",
       "start-order": "5"
     },

@@ -28,6 +28,9 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
+                                Bundle-Name: ${project.name}
+                                Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
+
                                 # ServiceLoader consumer
                                 Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"
                             ]]></bnd>
