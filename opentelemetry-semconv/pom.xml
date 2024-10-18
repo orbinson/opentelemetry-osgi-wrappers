@@ -13,6 +13,7 @@
 
     <artifactId>opentelemetry-semconv</artifactId>
     <version>1.27.0-alpha.0001-SNAPSHOT</version>
+    <name>OpenTelemetry - Semantic Conventions</name>
 
     <dependencies>
         <dependency>

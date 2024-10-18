@@ -19,5 +19,4 @@
         <module>opentelemetry-instrumentation-api</module>
         <module>opentelemetry-logback-appender-1.0</module>
     </modules>
-
 </project>

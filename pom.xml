@@ -122,6 +122,9 @@
                             <configuration>
                                 <bnd><![CDATA[
 Export-Package: io.opentelemetry.*
+Bundle-Name: ${project.name}
+Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
+Bundle-Category: OpenTelemetry
 
 # reproducible builds (https://github.com/bndtools/bnd/issues/3521)
 -noextraheaders: true
