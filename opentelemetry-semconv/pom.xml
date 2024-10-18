@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>opentelemetry-semconv</artifactId>
-    <version>1.27.0-alpha.0000-SNAPSHOT</version>
+    <version>1.27.0-alpha.0001-SNAPSHOT</version>
 
     <dependencies>
         <dependency>

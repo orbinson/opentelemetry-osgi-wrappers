@@ -2,15 +2,15 @@
   "id": "${project.groupId}:${project.artifactId}:slingfeature:opentelemetry-java-instrumentation:${project.version}",
   "bundles": [
     {
-      "id": "${project.groupId}:opentelemetry-instrumentation-annotations:1.33.6.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-instrumentation-annotations:1.33.6.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-instrumentation-api:1.33.6.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-instrumentation-api:1.33.6.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-logback-appender-1.0:1.33.6-alpha.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-logback-appender-1.0:1.33.6-alpha.0001-SNAPSHOT",
       "start-order": 5
     }
   ]

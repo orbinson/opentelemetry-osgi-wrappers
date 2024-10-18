@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>opentelemetry-context</artifactId>
-    <version>1.43.0.0000-SNAPSHOT</version>
+    <version>1.43.0.0001-SNAPSHOT</version>
 
     <build>
         <plugins>

@@ -2,63 +2,63 @@
   "id": "${project.groupId}:${project.artifactId}:slingfeature:opentelemetry-java:${project.version}",
   "bundles": [
     {
-      "id": "${project.groupId}:opentelemetry-api:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-api:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-api-incubator:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-api-incubator:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-context:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-context:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-sdk:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-sdk:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-sdk-common:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-sdk-common:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-sdk-logs:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-sdk-logs:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-sdk-metrics:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-sdk-metrics:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-sdk-trace:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-sdk-trace:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-sdk-extension-autoconfigure:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-sdk-extension-autoconfigure:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-sdk-extension-autoconfigure-spi:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-sdk-extension-autoconfigure-spi:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-sdk-extension-incubator:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-sdk-extension-incubator:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-exporter-common:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-exporter-common:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-exporter-logging:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-exporter-logging:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-exporter-otlp:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-exporter-otlp:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
-      "id": "${project.groupId}:opentelemetry-exporter-otlp-common:1.43.0.0000-SNAPSHOT",
+      "id": "${project.groupId}:opentelemetry-exporter-otlp-common:1.43.0.0001-SNAPSHOT",
       "start-order": 5
     },
     {
