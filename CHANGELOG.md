@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add Apache HttpClient 4.3
 - Update manifest headers
+- Update to BND 7.1.0, which supports automatically generating the correct ServiceLoader Provider headers
 
 ## [1.0.1] - 2024-10-15
 

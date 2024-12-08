@@ -112,7 +112,7 @@
                 <plugin>
                     <groupId>biz.aQute.bnd</groupId>
                     <artifactId>bnd-maven-plugin</artifactId>
-                    <version>7.0.0</version>
+                    <version>7.1.0</version>
                     <executions>
                         <execution>
                             <id>bnd-process</id>
@@ -133,8 +133,7 @@ Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
 -includeresource: @opentelemetry-*.jar;lib:=true
 -split-package: merge-first
 
-# TODO: add once bnd 7.1+ is released and update all projects containing manual provide-capability headers, will auto-detect the service loader provide-capability
-# -metainf-services: auto
+-metainf-services: auto
                                 ]]></bnd>
                             </configuration>
                         </execution>
