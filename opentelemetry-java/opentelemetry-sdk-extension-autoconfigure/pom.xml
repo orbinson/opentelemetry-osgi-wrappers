@@ -32,14 +32,8 @@
                                 Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
 
                                 # ServiceLoader consumer
-                                # TODO: add back once bnd 7.1+ is released
-                                # Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"
-
-                                # ServiceLoader provider
-                                # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
-                                Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";register:="io.opentelemetry.sdk.autoconfigure.internal.EnvironmentResourceProvider"
-                                Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)",osgi.extender;filter:="(osgi.extender=osgi.serviceloader.registrar)"
-                           ]]></bnd>
+                                Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"
+                               ]]></bnd>
                         </configuration>
                     </execution>
                 </executions>

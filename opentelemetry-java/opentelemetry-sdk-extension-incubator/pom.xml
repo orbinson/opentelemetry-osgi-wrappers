@@ -30,11 +30,6 @@
                             <bnd><![CDATA[
                                 Bundle-Name: ${project.name}
                                 Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
-
-                                # ServiceLoader provider
-                                # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
-                                Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider";register:="io.opentelemetry.sdk.extension.incubator.metric.viewconfig.ViewConfigCustomizer",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider";register:="io.opentelemetry.sdk.extension.incubator.resources.ServiceInstanceIdResourceProvider"
-                                Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.registrar)"
                             ]]></bnd>
                         </configuration>
                     </execution>
