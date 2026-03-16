@@ -12,14 +12,14 @@
     </parent>
 
     <artifactId>opentelemetry-semconv</artifactId>
-    <version>1.27.0-alpha.0001-SNAPSHOT</version>
+    <version>1.40.0.0001-SNAPSHOT</version>
     <name>OpenTelemetry - Semantic Conventions</name>
 
     <dependencies>
         <dependency>
             <groupId>io.opentelemetry.semconv</groupId>
             <artifactId>opentelemetry-semconv</artifactId>
-            <version>1.27.0-alpha</version>
+            <version>1.40.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>
