@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>opentelemetry-exporter-sender-okhttp</artifactId>
-    <version>1.43.0.0001-SNAPSHOT</version>
+    <version>1.60.1.0001-SNAPSHOT</version>
     <name>OpenTelemetry - Exporter - Sender OkHttp</name>
 
     <build>
@@ -34,10 +34,10 @@
                                 # We are using okhttp as sender, which does not have a dependency on grpc
                                 Import-Package: io.grpc*;resolution:=optional,*
 
-                                # ServiceLoader provider
-                                # TODO: remove once bnd 7.1+ is released, will auto-detect the service loader provide-capability
-                                Provide-Capability: osgi.service;objectClass:List<String>="io.opentelemetry.exporter.internal.grpc.GrpcSenderProvider";effective:=active,osgi.service;objectClass:List<String>="io.opentelemetry.exporter.internal.http.HttpSenderProvider";effective:=active,osgi.serviceloader;osgi.serviceloader="io.opentelemetry.exporter.internal.grpc.GrpcSenderProvider";register:="io.opentelemetry.exporter.sender.okhttp.internal.OkHttpGrpcSenderProvider",osgi.serviceloader;osgi.serviceloader="io.opentelemetry.exporter.internal.http.HttpSenderProvider";register:="io.opentelemetry.exporter.sender.okhttp.internal.OkHttpHttpSenderProvider"
-                                Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.registrar)"
+                                # Override parent: only include sender-okhttp jar and only export its packages
+                                # (sdk-common is provided for bnd classpath resolution so that correct Provide-Capability headers are generated)
+                                Export-Package: io.opentelemetry.exporter.sender.okhttp.*
+                                -includeresource: @opentelemetry-exporter-sender-okhttp-*.jar;lib:=true
                            ]]></bnd>
                         </configuration>
                     </execution>
@@ -50,7 +50,20 @@
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-sender-okhttp</artifactId>
-            <version>1.43.0</version>
+            <version>1.60.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Needed on classpath so bnd can resolve the HttpSenderProvider/GrpcSenderProvider service interfaces for -metainf-services -->
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-sdk-common</artifactId>
+            <version>1.60.1</version>
+            <scope>provided</scope>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

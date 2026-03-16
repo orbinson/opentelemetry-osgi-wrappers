@@ -12,14 +12,14 @@
     </parent>
 
     <artifactId>opentelemetry-apache-httpclient-4.3</artifactId>
-    <version>2.9.0-alpha.0001-SNAPSHOT</version>
+    <version>2.26.0-alpha.0001-SNAPSHOT</version>
     <name>OpenTelemetry - Instrumentation - Apache HttpClient 4.3</name>
 
     <dependencies>
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
             <artifactId>opentelemetry-apache-httpclient-4.3</artifactId>
-            <version>2.9.0-alpha</version>
+            <version>2.26.0-alpha</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

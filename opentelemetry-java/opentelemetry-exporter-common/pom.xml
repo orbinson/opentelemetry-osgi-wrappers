@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>opentelemetry-exporter-common</artifactId>
-    <version>1.43.0.0001-SNAPSHOT</version>
+    <version>1.60.1.0001-SNAPSHOT</version>
     <name>OpenTelemetry - Exporter - Common</name>
 
     <build>
@@ -30,13 +30,10 @@
                             <bnd><![CDATA[
                                 Bundle-Name: ${project.name}
                                 Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
-                                # ServiceLoader consumer
                                 # We are using okhttp as sender, which does not have a dependency on grpc
                                 # Unsafe is only used when it is available / enabled, see  https://github.com/open-telemetry/opentelemetry-java/pull/6433
-                                Import-Package:   io.grpc*;resolution:=optional,sun.misc;resolution:=optional,*
-
-                                # ServiceLoader consumer
-                                Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)"
+                                # com.google.common.io is only used in the grpc code path (MarshalerInputStream)
+                                Import-Package: io.grpc*;resolution:=optional,sun.misc;resolution:=optional,com.google.common.io;resolution:=optional,*
                             ]]></bnd>
                         </configuration>
                     </execution>
@@ -49,7 +46,7 @@
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-common</artifactId>
-            <version>1.43.0</version>
+            <version>1.60.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

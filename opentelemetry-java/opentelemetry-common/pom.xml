@@ -6,20 +6,21 @@
 
     <parent>
         <groupId>be.orbinson.osgi</groupId>
-        <artifactId>opentelemetry-osgi-wrappers</artifactId>
+        <artifactId>opentelemetry-java</artifactId>
         <version>1.0.3-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>opentelemetry-semconv</artifactId>
-    <version>1.40.0.0001-SNAPSHOT</version>
-    <name>OpenTelemetry - Semantic Conventions</name>
+    <artifactId>opentelemetry-common</artifactId>
+    <version>1.60.1.0001-SNAPSHOT</version>
+    <name>OpenTelemetry - Common</name>
+
 
     <dependencies>
         <dependency>
-            <groupId>io.opentelemetry.semconv</groupId>
-            <artifactId>opentelemetry-semconv</artifactId>
-            <version>1.40.0</version>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-common</artifactId>
+            <version>1.60.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

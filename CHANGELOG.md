@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add Apache HttpClient 4.3
 - Update manifest headers
+- Upgraded to opentelemetry-java 1.60.1
+- Upgraded opentelemetry-java-instrumentations to 2.26.0
+- Upgrade opentelemetry-semconv to 1.40.0
+- Set com.google.common.io as optional so that we no longer depend Guava
 
 ## [1.0.1] - 2024-10-15
 
