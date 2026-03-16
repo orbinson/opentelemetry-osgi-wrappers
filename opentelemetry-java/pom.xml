@@ -19,6 +19,7 @@
     <modules>
         <module>opentelemetry-api</module>
         <module>opentelemetry-api-incubator</module>
+        <module>opentelemetry-common</module>
         <module>opentelemetry-context</module>
         <module>opentelemetry-sdk</module>
         <module>opentelemetry-sdk-common</module>

@@ -11,14 +11,15 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>opentelemetry-sdk-extension-autoconfigure-spi</artifactId>
+    <artifactId>opentelemetry-common</artifactId>
     <version>1.60.1.0001-SNAPSHOT</version>
-    <name>OpenTelemetry - SDK Extension - Autoconfigure SPI</name>
+    <name>OpenTelemetry - Common</name>
+
 
     <dependencies>
         <dependency>
             <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-sdk-extension-autoconfigure-spi</artifactId>
+            <artifactId>opentelemetry-common</artifactId>
             <version>1.60.1</version>
             <exclusions>
                 <exclusion>

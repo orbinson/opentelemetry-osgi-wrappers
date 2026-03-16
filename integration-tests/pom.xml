@@ -33,19 +33,19 @@
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-api</artifactId>
-            <version>1.43.0</version>
+            <version>1.60.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-sdk</artifactId>
-            <version>1.43.0</version>
+            <version>1.60.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-sdk-testing</artifactId>
-            <version>1.43.0</version>
+            <version>1.60.1</version>
         </dependency>
 
         <!-- Testing -->
@@ -79,7 +79,7 @@
                         Export-Package: be.orbinson.osgi.opentelemetry
                         Import-Package: *;resolution:=optional
 
-                        -includeresource: @opentelemetry-sdk-testing-1.43.0.jar;lib:=true
+                        -includeresource: @opentelemetry-sdk-testing-1.60.1.jar;lib:=true
                    ]]></bnd>
                         </configuration>
                     </execution>
