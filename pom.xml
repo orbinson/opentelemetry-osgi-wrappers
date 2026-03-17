@@ -27,6 +27,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <njord.version>0.9.4</njord.version>
         <sling.host>localhost</sling.host>
         <sling.port>8080</sling.port>
         <sling.user>admin</sling.user>
@@ -64,6 +65,13 @@
     </issueManagement>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>eu.maveniverse.maven.njord</groupId>
+                <artifactId>extension3</artifactId>
+                <version>${njord.version}</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -80,10 +88,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
             </plugin>
         </plugins>
 
@@ -162,17 +166,10 @@ Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
                         </execution>
                     </executions>
                 </plugin>
-                <!-- Sonatype Release -->
                 <plugin>
-                    <groupId>org.sonatype.plugins</groupId>
-                    <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>1.7.0</version>
-                    <extensions>true</extensions>
-                    <configuration>
-                        <serverId>ossrh</serverId>
-                        <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                    </configuration>
+                    <groupId>eu.maveniverse.maven.plugins</groupId>
+                    <artifactId>njord</artifactId>
+                    <version>${njord.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -283,14 +280,14 @@ Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
 
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
-            <name>Central Repository OSSRH - Snapshots</name>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+            <id>sonatype-central-portal</id>
+            <name>Central Portal SNAPSHOT</name>
+            <url>https://central.sonatype.com/repository/maven-snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <name>Central Repository OSSRH</name>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>sonatype-central-portal</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2</url>
         </repository>
     </distributionManagement>
 </project>
