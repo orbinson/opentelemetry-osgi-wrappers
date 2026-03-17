@@ -42,7 +42,7 @@ jobs:
         if: ${{ inputs.central }}
         run: |
           mvn --batch-mode deploy --activate-profiles release \
-            -DaltDeploymentRepository=id::njord: \
+            -DaltDeploymentRepository=sonatype-central-portal::njord: \
             -Dnjord.autoPublish \
             -Dnjord.publisher=sonatype-cp \
             -Dnjord.publisher.sonatype-cp.releaseRepositoryId=sonatype-central-portal \
