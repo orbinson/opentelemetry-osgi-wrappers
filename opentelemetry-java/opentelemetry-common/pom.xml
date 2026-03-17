@@ -16,6 +16,29 @@
     <name>OpenTelemetry - Common</name>
 
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>bnd-process</id>
+                        <configuration>
+                            <bnd><![CDATA[
+                                Bundle-Name: ${project.name}
+                                Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
+
+                                # Needed because this bundle actually consumes the service providers
+                                SPI-Consumer: *
+                            ]]></bnd>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>io.opentelemetry</groupId>
