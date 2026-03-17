@@ -177,7 +177,7 @@ Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
                     <version>1.6</version>
                     <executions>
                         <execution>
-                            <phase>deploy</phase>
+                            <phase>verify</phase>
                             <goals>
                                 <goal>sign</goal>
                             </goals>
